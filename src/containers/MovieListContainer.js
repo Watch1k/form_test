@@ -1,10 +1,11 @@
 import { MovieList } from '../components'
 import { connect } from 'react-redux'
 
-const mapStateToProps = ({ movies, isLoaded }) => {
+const mapStateToProps = ({ movies, isLoaded, error }) => {
   return {
     movies,
     isLoaded,
+    error,
   }
 }
 

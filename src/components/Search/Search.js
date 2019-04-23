@@ -6,6 +6,7 @@ export class Search extends PureComponent {
   page = '1'
   //FIXME: move to env?!?!
   apiKey = '940278f7'
+
   state = { value: '' }
 
   search = debounce(function (searchValue) {
@@ -21,9 +22,6 @@ export class Search extends PureComponent {
       page,
       searchValue,
     })
-      .catch((err) => {
-        console.error(`Error: ${err}`)
-      })
   }, this, 300)
 
   handleChange = async (event) => {

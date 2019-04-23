@@ -3,6 +3,7 @@ import { FETCH_MOVIES_FAILURE, FETCH_MOVIES_REQUEST, FETCH_MOVIES_SUCCESS, SEARC
 const initialState = {
   movies: [],
   isLoaded: false,
+  error: null,
 }
 
 export default function fetchReducer(state = initialState, action) {
@@ -24,13 +25,17 @@ export default function fetchReducer(state = initialState, action) {
       ...state,
       movies,
       isLoaded: true,
+      error: null,
     }
   }
 
   if (action.type === FETCH_MOVIES_FAILURE) {
+    const { error } = action
+
     return {
       ...initialState,
       isLoaded: true,
+      error,
     }
   }
 
